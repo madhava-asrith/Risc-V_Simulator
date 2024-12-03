@@ -1,0 +1,97 @@
+# README - RISC-V Simulator
+
+
+## Project Overview
+
+This project is a RISC-V instruction simulator designed to emulate the behavior of RISC-V instructions with various formats. It supports instruction types such as R, I, S, B, U, and J formats, and includes cache simulation capabilities. The simulator takes assembly files as input and generates the corresponding output, mimicking the execution on a RISC-V processor.
+
+---
+
+## Files in the Directory
+
+1. source: Contains C++ source files implementing each instruction format and the main simulator logic (e.g. `lab7.cpp`).
+2. header: Includes header files defining the structure and behavior of each instruction format and helper methods.
+3. Executable: riscv_sim, the main compiled binary for running the simulator.
+4. Sample Input Files: Assembly files like input.s provide sample RISC-V instructions for simulation.
+5. Configuration: config.txt holds the cache parameters.
+6. Documentation: The README and report.md describe the project and its implementation
+
+---
+
+## How to Use
+
+### **Step-by-Step Instructions**:
+
+1. **Compilation**:
+   - To compile the program, use the following command:
+     ```bash
+     make
+     ```
+   - This will compile `lab7.cpp` along with its dependencies and generate an executable named `riscv_sim`.
+
+2. **Running the Simulator**:
+   - Once the executable is generated, run the program using:
+     ```bash
+     ./riscv_sim
+     ```
+   - The simulator will enter an infinite loop and wait for user input commands. You can use the following commands:
+      - `load <filename>`: Load the assembly file (e.g., input.s) into the simulator.
+      - `run`: Execute the loaded RISC-V code.
+      - `regs`: Display the values of all registers in hexadecimal format.
+      - `mem <addr> <count>`: Print memory content starting at address addr for count entries.
+      - `step`: Execute a single instruction and print the result.
+      - `show-stack`: Display the stack frame and its contents.
+      - `break <line>`: Set a breakpoint at a specific line of code. Line numbering starts from `.text` section.
+      - `del break <line>`: Remove a breakpoint at a specific line. Line numbering starts from `.text` section.
+      - `exit`: Exit the simulator.
+      - `cache_sim`: For the cache configuration related commands
+
+### Debugging and Stepping
+
+You can set breakpoints using the `break <line>` command, allowing you to pause execution and inspect the state of the program. The `step` command lets you run a single instruction at a time for detailed debugging.
+
+### **Cleaning Up**:
+   - To clean the directory (remove object files and executables):
+     ```bash
+     make clean
+     ```
+
+---
+
+## Example Input
+
+Here is an example of a few RISC-V instructions you can include in the `input.s` file:
+
+```bash
+./riscv_sim
+>> load input.s
+Program loaded from file: output.hex
+
+>> step
+Executed lui x2, 0x50; PC=0x0
+
+>> mem 0x0 5
+Mem[0x0]: 0x37
+Mem[0x1]: 0x01
+Mem[0x2]: 0x05
+Mem[0x3]: 0x00
+Mem[0x4]: 0x13
+
+>> exit
+Exiting the simulator
+```
+
+---
+
+## Additional Features
+- Supports labels and instructions on different lines.
+- Allows defining data types and values on separate lines.
+- Detects infinite loops and halts execution if one is encountered.
+- Can use decimal and hexadecimal values with I-type and U-type instructions
+- Supports some pseudo-instructions.
+- Ignores comments in the assembly code.
+
+---
+
+
+

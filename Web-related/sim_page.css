@@ -1,0 +1,379 @@
+.buttons {
+    display: flex;
+    margin: 5px;
+}
+
+.buttons button {    
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 10px 20px; /* Adjust padding for consistent size */
+    font-size: 14px; /* Ensure consistent font size */
+    color: white;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-flex;
+    width: 200px; /* Adjust width as needed */
+}
+
+.dropdown button#breakpoint {
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    padding: 10px;
+    background-color: #000000; /* Primary button color */
+    color: white;
+    width: 100%;
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+
+.dropdown button#cache {
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    padding: 10px;
+    background-color: #000000; /* Primary button color */
+    color: white;
+    width: 100%;
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+
+.dropdown button#cache:hover {
+    background-color: #0056b3; /* Darker shade on hover */
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: black;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    padding: 10px;
+    min-width: 200px;
+    z-index: 1;
+    overflow: hidden; /* Prevent overflowing content */
+}
+
+.dropdown-content button {
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    padding: 10px 15px;
+    background-color: black; /* Light background for dropdown items */
+    margin-bottom: 5px; /* Spacing between buttons */
+    width: 100%; /* Full width of dropdown */
+    text-align: left; /* Align text to the left */
+    transition: background-color 0.3s ease;
+}
+
+.dropdown-content button:hover {
+    background-color: #0044ff; /* Highlight on hover */
+}
+
+.dropdown-content label.switch {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+    gap: 8px; /* Space between slider and text */
+}
+
+.dropdown-content .slider {
+    position: relative;
+    width: 36px;
+    height: 20px;
+    background-color: #ccc;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.dropdown-content .slider:before {
+    content: "";
+    position: absolute;
+    height: 16px;
+    width: 16px;
+    left: 2px;
+    bottom: 2px;
+    background-color: white;
+    border-radius: 50%;
+    transition: transform 0.3s ease;
+}
+
+.dropdown-content input:checked + .slider {
+    background-color: #2196F3;
+}
+
+.dropdown-content input:checked + .slider:before {
+    transform: translateX(16px);
+}
+
+.dropdown-content .label-text {
+    font-size: 14px;
+    color: #ffffff;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+    animation: fadeIn 0.2s ease-in-out;
+}
+
+/* Optional fade-in animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+.popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    z-index: 1000;
+}
+.popup input {
+    display: block;
+    width: 200px;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+.popup button {
+    padding: 10px 20px;
+    width: 100px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #007bff;
+    color: #fff;
+}
+
+/* .overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+} */
+
+.input {
+    float: left;
+    margin: 10px;
+    padding: 5px;
+    width: 45%;
+    box-sizing: border-box;
+}
+
+.registers {
+    float: left;
+    margin: 10px;
+    padding: 5px;
+    width: 35%;
+    text-align: center;
+}
+
+.memory {
+    display: none;
+    float: left;
+    margin: 10px;
+    padding: 5px;
+    width: 22%;
+    text-align: center;
+}
+
+.clear-float {
+    clear: both;
+}
+
+#cache_output {
+    float: left;
+    display: block;
+    padding: 5px;
+    box-sizing: border-box;
+}
+
+#heading {
+    text-align: center;
+}
+
+#input {
+    display: block;
+    overflow-y: hidden;
+    resize:none;
+    max-height: 500px;
+}
+
+#file {
+    padding: 5px;
+}
+
+textarea{
+    width: 100%;
+    height: 100%;
+    resize: none;
+    border: none;
+    background-color: #f0f0f0;
+    font-size: 1.5em;
+    font-family: 'Courier New', Courier, monospace;
+    padding: 10px;
+}
+
+button{
+    background-color: #130101;
+    color: white;
+    padding: 1px 2px;
+    margin: 1px 2px;
+    border: none;
+    cursor: pointer;
+    width: 20%;
+    font-size: 1em;
+    font-family: "Shadows Into Light", cursive;
+    font-weight: 400;
+    font-style: normal;
+}
+
+button:hover{
+    background-color: #0722f1;
+}
+
+button:active{
+    background-color: #07f184;
+}
+
+body {
+    background-color: #4d4f50;
+}
+
+p {
+    color: white;
+    border: 2px solid black;
+    margin: 0px;
+    padding: 1px;
+}
+
+h1, h2, h3 {
+    color: springgreen;
+}
+
+#myBtn {
+    display: none; /* Hidden by default */
+    position: fixed; /* Fixed/sticky position */
+    bottom: 20px; /* Place the button at the bottom of the page */
+    right: 30px; /* Place the button 30px from the right */
+    z-index: 99; /* Make sure it does not overlap */
+    border: none; /* Remove borders */
+    outline: none; /* Remove outline */
+    background-color: red; /* Set a background color */
+    color: white; /* Text color */
+    cursor: pointer; /* Add a mouse pointer on hover */
+    padding: 15px; /* Some padding */
+    border-radius: 10px; /* Rounded corners */
+    font-size: 18px; /* Increase font size */
+    width: 100px;
+}
+
+#myBtn:hover {
+    background-color: #555; /* Add a dark-grey background on hover */
+}
+
+
+  
+  /* Hide default HTML checkbox */
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+  
+  /* The slider */
+.switch {
+    display: inline-flex; /* Aligns slider and text horizontally */
+    align-items: center; /* Vertically aligns the slider and text */
+    margin-right: 10px; /* Space between slider and text */
+}
+
+.slider {
+    position: relative;
+    cursor: pointer;
+    width: 36px; /* Reduced width */
+    height: 20px; /* Reduced height */
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 16px; /* Adjusted height */
+    width: 16px; /* Adjusted width */
+    left: 2px; /* Adjusted position */
+    bottom: 2px; /* Adjusted position */
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+input:checked + .slider {
+    background-color: #2196F3;
+}
+
+input:focus + .slider {
+    box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+    -webkit-transform: translateX(16px); /* Adjusted for smaller slider */
+    -ms-transform: translateX(16px);
+    transform: translateX(16px);
+}
+
+/* Rounded sliders */
+.slider.round {
+    border-radius: 20px; /* Reduced to match smaller size */
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
+
+.label-text {
+    font-family: 'Shadows into Light', cursive; /* Custom font */
+    margin-left: 5px; /* Space between slider and text */
+    font-size: 15px; /* Adjust font size to match layout */
+    color: #ffffff;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+  appearance: textfield;
+}

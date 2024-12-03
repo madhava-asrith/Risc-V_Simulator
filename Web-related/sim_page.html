@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>RISC-V Simulator</title>
+    <link href="https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap" rel="stylesheet">
+    <link href="normalize.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="sim_page.css" type="text/css">
+</head>
+
+
+<body>
+    <header>
+        <h1  id="heading">RISC-V Simulator</h1>
+    </header>
+    <div class="container" >
+            <div class="buttons">
+                <button id="run" onclick="run()">Run</button>
+                <button id="step" onclick="step()">Step</button>
+                <button id="reset" onclick="reset()">Reset</button>
+                
+                <div class="dropdown">
+                    <button id="breakpoint" onclick="breakpoint()">Breakpoint</button>
+                    <div class="dropdown-content">
+                        <button style="display: inline-block;" id="set-breakpoint">Set Breakpoint</button>
+                        <button style="display: inline-block;" id="show-breakpoint">Show Breakpoint</button>
+                        <button style="display: inline-block;" id="clear-breakpoint">Clear Breakpoint</button>
+                    </div>
+                </div>
+                
+                <div class="dropdown">
+                    <button id="cache" onclick="cache()">Cache</button>
+                    <div class="dropdown-content">                        
+                        <button style="display: inline-block;" id="config-btn">Cache config</button>
+                        <button style="display: inline-block;" id="stats-btn">Cache stats</button>
+                        <button style="display: inline-block;" id="contents-btn">Cache contents</button>
+                        <button style="display: inline-block;" id="chng-config-btn">Change Cache config</button>
+                        
+
+                        <label class="switch">
+                            <input type="checkbox" id="cache-enable">
+                            <span class="slider round"></span>
+                        </label>
+                        <span class="label-text">Cache enable</span>
+                    </div>
+                </div>
+
+                <button id="memory-btn">Show Memory</button>
+                <button id="register-btn" style="display: none;">Show Registers</button>
+            </div>
+
+            <div class="input">
+                <h2>Input</h2>
+                <textarea id="input" placeholder="Enter your RISC-V code here " oninput="autoResize(),set_regs()" ></textarea>
+                <input type="file" id="file" accept=".s,.asm" onclick="resetValue()" onchange="loadFile(),set_regs()" >    
+                
+                <div class"cache_output">
+                    <h2>Output</h2>
+                    <textarea id="cache_output" readonly placeholder="Output will appear here..."></textarea>
+                </div>
+            </div>
+
+            <div class="registers" id="regsCont">
+                <h2>Registers</h2> 
+                <textarea readonly style="height: 800px;" id="reg_area" ></textarea>
+            </div>
+            
+            <div class="memory" id="memoryCont">
+                <h2>Memory</h2>
+                <button id="mem-btn">Access Memory</button>
+                <textarea readonly style="margin: 5px;" id="mem_area"></textarea>
+            </div>
+
+            <div class="clear-float"></div>
+
+            <div class="popup" id="memoryPopup">
+                <h3>Enter Memory Details</h3>
+                <input type="text" id="startAddress" placeholder="Start Address">
+                <input type="text" id="count" placeholder="Count">
+                <button id="cancelButton">Cancel</button>
+                <button >Submit</button>
+            </div>
+            <div class="overlay" id="overlay"></div>
+
+            <div class="popup" id="cache-config">
+                <h3>Enter Cache config</h3>
+                <label for="cacheSize">Cache Size</label>
+                <input type="number" id="cacheSize" placeholder="Cache Size"> 
+                
+                <label for="blockSize">Block Size</label>
+                <input type="number" id="blockSize" placeholder="Block Size">
+
+                <label for="assoc">Associativity</label>
+                <input type="numebr" id="assoc" placeholder="Associativity">
+                
+                <button id="cancel-btn">Cancel</button>
+                <button id="set-config">Set config</button>
+            </div>
+
+            <div class="popup" id="breakpointPopup">
+                <h3>Enter Breakpoint Line</h3>
+                <input type="text" id="breakpointAddress" placeholder="Breakpoint Line">
+                <button id="cancelBreakpoint">Cancel</button>
+                <button id="set-brkpt">Set Breakpoint</button>
+            </div>
+            <div class="popup" id="showBreakpointPopup">
+                <h3>Breakpoint Line</h3>
+                <textarea readonly id="showBreakpointArea"></textarea>
+                <button id="cancelShowBreakpoint">Cancel</button>
+            </div>
+
+            <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+
+    </div>
+
+    <script src="sim.js" type="text/javascript">
+        textarea = document.getElementById('input');
+        textarea.addEventListener('input', autoResize);
+        
+    </script>
+
+</body>
+
+</html>
